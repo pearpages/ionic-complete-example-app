@@ -76,7 +76,7 @@ angular.module('eliteApp', ['ionic'])
       url: "/standings",
       views:{
         'mainContent':{
-          templateUrl: "app/standigns/standings.html"
+          templateUrl: "app/standings/standings.html"
         }
       }
     })
