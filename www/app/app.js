@@ -1,6 +1,5 @@
 (function (){
 angular.module('eliteApp', ['ionic'])
-.controller('MyController', MyController)
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -12,12 +11,18 @@ angular.module('eliteApp', ['ionic'])
       StatusBar.styleDefault();
     }
   });
+})
+.config(function($stateProvider, $urlRouterProvider){
+  console.log('here');
+
+  $stateProvider
+    .state('home', {
+      url: "/home",
+      templateUrl: "app/home/home.html"
+    });
+
+    $urlRouterProvider.otherwise('/home');
+
 });
 
-  function MyController(){
-
-    var vm = this;
-
-    vm.myTitle = 'Headers Demo';
-  }
 })();

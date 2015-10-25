@@ -19,25 +19,11 @@
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
-    <script src="js/app.js"></script>
-    <script src="js/myController.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/home/home.js"></script>
   </head>
-  <body ng-app="eliteApp" ng-controller="MyController as my">
+  <body ng-app="eliteApp" >
 
-    <ion-pane>
-
-      <ion-header-bar class="bar-positive" >
-        <h1 class="title">{{my.myTitle}}</h1>
-      </ion-header-bar>
-
-      <ion-content>
-      </ion-content>
-
-      <ion-tabs class="tabs-energized tabs-icon-top">
-        <ion-tab title="Leagues" icon="ion-home" href="#"></ion-tab>
-        <ion-tab title="My Teams" icon="ion-star" href="#"></ion-tab>
-      </ion-tabs>
-
-    </ion-pane>
+    <ion-nav-view></ion-nav-view>
   </body>
 </html>
