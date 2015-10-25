@@ -13,15 +13,18 @@ angular.module('eliteApp', ['ionic'])
   });
 })
 .config(function($stateProvider, $urlRouterProvider){
-  console.log('here');
 
   $stateProvider
     .state('home', {
       url: "/home",
       templateUrl: "app/home/home.html"
+    })
+    .state('app',{
+      url: "/app",
+      templateUrl: "app/layout/layout.html"
     });
 
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/app');
 
 });
 
