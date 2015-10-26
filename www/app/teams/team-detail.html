@@ -1,7 +1,25 @@
 <ion-view title"{{teamDetail.teamName}}" ng-controller="TeamDetailController as teamDetail">
 	<ion-content class="has-header">
 
-	<div class="cad">
+	<div class="card">
+
+		<div class="item item-checkbox">
+			<h2>{{teamDetail.following ? "Following" : "Not Following"}}</h2>
+			<label class="checkbox">
+				<input type="checkbox" ng-model="teamDetail.following">
+			</label>
+		</div>
+
+		<div class="item item-checkbox">
+			<h2>{{teamDetail.following ? "Following" : "Not Following"}}</h2>
+			<label class="toggle toggle-energized">
+				<input type="checkbox" ng-model="teamDetail.following">
+				<div class="track">
+					<div class="handle"></div>
+				</div>
+			</label>
+		</div>
+
 		<div class="item">
 			<h2>Record: {{game.teamStanding.wins}}-{{game.teamStanding.losses}}</h2>
 		</div>
