@@ -10,6 +10,7 @@
 		vm.teamId = Number($stateParams.id);
 		vm.teamName = getTeamName();
 		vm.games = getGames();
+		vm.teamStanding = getTeamStanding();
 
 		var data;
 
@@ -20,6 +21,13 @@
 
 			return data;
 		} 
+
+		function getTeamStanding(){
+			return _.chain(getData().standings)
+					.flatten("divisionStandings")
+					.find({"teamId": vm.teamId})
+					.value();
+		}
 
 		function getTeamName(){
 			return _.chain(getData().teams)

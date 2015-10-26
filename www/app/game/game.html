@@ -1,5 +1,41 @@
-<ion-view>
+<ion-view title="Game" ng-controller="GameController as game">
 	<ion-content class="has-header">
-		<h1>Game</h1>
+		
+		<div class="card">
+			<div class="item item-divider item-energized">
+				Home Team
+			</div>
+			<a class="item item-text-wrap item-icon-right" ng-href="#/app/teams/{{game.game.team1Id}}">
+				{{game.game.team1}}
+			</a>
+			<div class="item item-divider">
+				Score: {{game.game.team1Score}}
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="item item-divider item-energized">
+				Away Team
+			</div>
+			<a class="item item-text-wrap item-icon-right" ng-href="#/app/teams/{{game.game.team1Id}}">
+				{{game.game.team2}}
+			</a>
+			<div class="item item-divider">
+				Score: {{game.game.team2Score}}
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="item item-divider item-energized">
+				Time/Location
+			</div>
+			<div class="item">
+				<span class="bold">Date/Time:</span> {{game.game.time | date: 'M/d/yy'}} {{game.game.time | date:'shortTime'}}
+			</div>
+			<div class="item item-divider">
+				Score: {{game.game.location}}
+			</div>
+		</div>
+
 	</ion-content>
 </ion-view>

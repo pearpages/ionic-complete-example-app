@@ -1,5 +1,12 @@
 <ion-view title"{{teamDetail.teamName}}" ng-controller="TeamDetailController as teamDetail">
 	<ion-content class="has-header">
+
+	<div class="cad">
+		<div class="item">
+			<h2>Record: {{game.teamStanding.wins}}-{{game.teamStanding.losses}}</h2>
+		</div>
+	</div>
+
 		<div class="list">
 			<a class="item item-icon-right" ng-repeat="game in teamDetail.games" ui-sref="app.game({id:game.gameId})">
 
