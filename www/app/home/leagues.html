@@ -1,5 +1,7 @@
-<ion-view>
-	<ion-content class="has-header">
-		<h1>Leagues</h1>
+<ion-view ng-controller="LeaguesController as leagues">
+	<ion-content class="has-header" >
+		<div class="list">
+			<a class="item" ng-repeat="league in leagues.leagues">{{league.name}}</a>
+		</div>
 	</ion-content>
 </ion-view>
