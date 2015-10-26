@@ -1,7 +1,12 @@
-<ion-view>
+<ion-view title="Teams" ng-controller="TeamsController as teams">
 	<ion-content class="has-header">
-		<h1>Teams</h1>
+		<div class="list">
+			<div ng-repeat="division in teams.teams">
+			<div class="item item-divider item-energized">{{division.divisionName}}</div>
 
-		<a href="#/app/teams/21" class="button button-positive">Go To Team</a>
+				<a class="item item-icon-right" ng-repeat="team in division.divisionTeams" href="#app/teams/{{team.id}}">{{team.name}}
+				<i class="icon icon-chevron-right icon-accessory"></i></a>
+			</div>
+		</div>
 	</ion-content>
 </ion-view>

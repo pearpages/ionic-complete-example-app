@@ -1,5 +1,14 @@
-<ion-view>
+<ion-view title="Standings" ng-controller="StandingsController as standings">
 	<ion-content class="has-header">
-		<h1>Standings</h1>
+		<div class="list">
+			<div ng-repeat="division in standings.standings">
+				<div class="item item-divider item-energized">{{division.divisionName}}</div>
+
+				<a href="#/app/teams/{{team.id}}" class="item item-icon-right" ng-repeat="team in division.divisionStandings">
+					{{team.teamName}} ({{team.wins}}-{{team.losses}})
+					<i class="icon icon-chevron-right icon-accessory"></i>
+				</a>
+			</div>
+		</div>
 	</ion-content>
 </ion-view>
