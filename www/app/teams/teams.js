@@ -5,6 +5,8 @@
 		function TeamsController(eliteApi){
 			var vm = this;
 
-			vm.teams = eliteApi.getLeagueData().teams;
+			eliteApi.getLeagueData().then(function(data){
+				vm.teams = data.teams;
+			});
 		}
 })();

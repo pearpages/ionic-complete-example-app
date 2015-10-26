@@ -20,8 +20,11 @@
 			</label>
 		</div>
 
-		<div class="item">
+		<div class="item item-button-right">
 			<h2>Record: {{game.teamStanding.wins}}-{{game.teamStanding.losses}}</h2>
+			<button class="button button-positive icon-left" ng-class="{'ion-checkmark-round': teamDetail.following, 'ion-plus-round button-outline' : !teamDetail.following}" ng-click="teamDetail.toggleFollow()">
+				{{teamDetail.following ? "Following" : "Not Following"}}
+			</button>
 		</div>
 	</div>
 

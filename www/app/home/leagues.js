@@ -6,16 +6,13 @@
 
 		var vm = this;
 
-		vm.leagues = eliteApi.getLeagues();
-		vm.leagueData = eliteApi.getLeagueData();
-		vm.selectLeague = selectLeague;
+		eliteApi.getLeagues().then(function(data){
+			vm.leagues = data;
+		});		
 
-		function selectLeague(leagueId){
-			//TODO: select right league
-
+		vm.selectLeague = function (id){
+			eliteApi.setLeagueId(id);
 			$state.go("app.teams");
 		}
-
-		
 	}
 })();

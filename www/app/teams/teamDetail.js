@@ -2,17 +2,36 @@
 	'use strict';
 
 	angular.module('eliteApp')
-	.controller('TeamDetailController', ['$stateParams','eliteApi',TeamDetailController]);
+	.controller('TeamDetailController', ['$stateParams','eliteApi','$ionicPopup',TeamDetailController]);
 
-	function TeamDetailController ($stateParams,eliteApi){
+	function TeamDetailController ($stateParams,eliteApi,$ionicPopup){
 		var vm = this;
 
 		vm.teamId = Number($stateParams.id);
 		vm.teamName = getTeamName();
 		vm.games = getGames();
 		vm.teamStanding = getTeamStanding();
+		vm.toggleFollow = toggleFollow;
+		vm.following;
 
 		var data;
+
+		function toggleFollow(){
+			if(vm.following){
+				var confirmPopup = $ionicPopup.confirm({
+					title: "Unfollow?",
+					template: 'Are you sure you want to unfollow?'
+				});
+				confirmPopup.then(function(res){
+					if(res){
+						vm.following = !vm.following;
+					}
+				});
+			}else{
+				vm.following = !vm.following;
+			}
+		}
+
 
 		function getData(){
 			if(!data){
