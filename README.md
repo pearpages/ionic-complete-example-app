@@ -1,3 +1,8 @@
-# ionic-example-app
+# ionic-complete-example-app
 
-Just another test with ionic
++ Navigation and Routing
++ Ionic Components
++ Data and Caching
++ Mapping
++ Customizing Ionic
++ ngCordova
