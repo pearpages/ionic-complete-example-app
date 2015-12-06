@@ -1,6 +1,6 @@
 # ionic-complete-example-app
 
-+ Navigation and Routing
++ [Navigation and Routing](https://github.com/pearpages/ionic-complete-example-app/blob/master/docs/1-navigation-and-routing.md)
 + Ionic Components
 + Data and Caching
 + Mapping
