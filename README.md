@@ -17,12 +17,14 @@
 
 ## SiteMap
 
+```
 / My Teams
 / Leagues / Teams / Team Detail / Game
 / Leagues / Standings
 / Leagues / Locations / Location Schedule
 / Leagues / Locations / Location Mapping
 / Leagues / Rules
+```
 
 ## Ionic Overview
 
