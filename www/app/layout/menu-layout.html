@@ -1,28 +1,45 @@
 <ion-side-menus>
+  <!-- Left menu -->
+  <ion-side-menu side="left">
+  <div class="bar bar-header bar-positive">
+    <h1 class="title">Left menu</h1>
+  </div>
+	<ion-content class="has-header">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, assumenda.</ion-content>
 
-	<ion-pane ion-side-menu-content>
-		<ion-nav-bar class="bar-balanced">
-		<ion-nav-back-button class="button-clear button-icon icon ion-ios7-arrow"></ion-nav-back-button>
-		<ion-nav-title>
-			<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-			</ion-nav-title>
-		</ion-nav-bar>
-		<ion-nav-view name="mainContent" animation="slide-left-right"></ion-nav-view>
-	</ion-pane>
+	<div class="bar bar-footer bar-balanced">
+	  <button class="button button-clear ">left</button>
+	  <div class="title">title</div>
+	  <button class="button button-clear ">right</button>
+	</div>
+	
+  </ion-side-menu>
 
-	<ion-side-menu side="left">
-		<header class="bar bar-header bar-balanced">
-			<h1 class="title">Elite Schedule</h1>
-		</header>
-		<ion-content class="has-header">
-			<ion-list>
-				<ion-item nav-clear menu-close ui-sref="home.leagues">Home</ion-item>
-				<ion-item nav-clear menu-close ui-sref="app.teams">Teams</ion-item>
-				<ion-item nav-clear menu-close ui-sref="app.standings">Standings</ion-item>
-				<ion-item nav-clear menu-close ui-sref="app.locations">Locations</ion-item>
-				<ion-item nav-clear menu-close ui-sref="app.rules">Rules</ion-item>
-			</ion-list>
-		</ion-content>
-	</ion-side-menu>
+	<!-- Content -->
+  <ion-side-menu-content>
+
+  	<ion-nav-bar class="bar-balanced">
+
+		<ion-nav-title>My App</ion-nav-title>		
+
+	  <ion-nav-buttons side="left">
+	   <!-- Toggle left side menu -->
+	   <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	  </ion-nav-buttons>
+
+	  <ion-nav-buttons side="right">
+	   <!-- Toggle right side menu -->
+	   <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+	  </ion-nav-buttons>
+	</ion-nav-bar>
+
+  	<ion-nav-view>
+
+  	</ion-nav-view>
+
+  </ion-side-menu-content>
+
+  <!-- Right menu -->
+  <ion-side-menu side="right">
+  </ion-side-menu>
 
 </ion-side-menus>

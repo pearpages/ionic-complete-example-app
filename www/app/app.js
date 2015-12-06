@@ -1,5 +1,8 @@
 (function (){
-angular.module('eliteApp', ['ionic','myTests'])
+angular.module('eliteApp', [
+  'ionic',
+  'myTests'
+  ])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard

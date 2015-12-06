@@ -1,5 +1,7 @@
 # ionic-complete-example-app
 
++ Ionic Components
+    * [CSS](https://github.com/pearpages/ionic-complete-example-app/blob/master/docs/0-components-css.md)
 + [Navigation and Routing](https://github.com/pearpages/ionic-complete-example-app/blob/master/docs/1-navigation-and-routing.md)
 + Ionic Components
 + Data and Caching

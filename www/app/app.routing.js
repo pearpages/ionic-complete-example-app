@@ -5,7 +5,6 @@
 
   $stateProvider
     .state('home', {
-      abstract:true,
       url: "/home",
       templateUrl: "app/home/home.html"
     })
@@ -29,7 +28,7 @@
     })
 
     .state('app',{
-      abstract: true,
+      
       url: "/app",
       templateUrl: "app/layout/menu-layout.html"
     })
@@ -88,7 +87,7 @@
       }
     });
 
-    $urlRouterProvider.otherwise('/app/teams');
+    $urlRouterProvider.otherwise('/app');
 
 });
 }());
