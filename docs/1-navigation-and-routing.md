@@ -1,6 +1,7 @@
 # Navigation and Routing
 
 * Headers and footers
+* [Icons](http://ionicons.com)
 * Tabs
 * Side Menu
 * Routing
@@ -57,7 +58,7 @@ Just changing the footer area we can add tabs.
     </ion-header-bar>
 
     <ion-content>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa corporis repellat sapiente perspiciatis, nisi totam ut, officia quibusdam eum ullam libero qui doloremque temporibus itaque assumenda, fuga quis obcaecati magnam ex quasi, deleniti. Impedit incidunt deserunt eveniet numquam, voluptatem minus debitis voluptatum, nobis facere qui iure at. Eos, laborum atque in delectus placeat tempora esse cupiditate minus temporibus nobis repudiandae suscipit vero enim nulla excepturi at, consequatur a voluptas veritatis error! Magni aspernatur, quae itaque eaque modi impedit fuga nesciunt numquam minima quidem laudantium quisquam beatae consequatur animi aperiam laboriosam sit vitae sed atque minus voluptas ex omnis. Quo, at?
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa corporis repellat sapiente perspiciatis, nisi totam ut, officia quibusdam eum ullam libero qui doloremque temporibus itaque assumenda, fuga quis obcaecati magnam ex quasi, deleniti. Impedit incidunt deserunt eveniet numquam, voluptatem minus debitis voluptatum, nobis facere qui iure at.
     </ion-content>
 
     <!-- tabs can be: blanced, positive, energized, ... -->
