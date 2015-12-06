@@ -171,6 +171,80 @@ Links (a) or (span) as buttons
 
 ## List
 
-```html
+[For all the options check the docs](http://ionicframework.com/docs/components/#list)
 
+We can create lists with:
+
++ div.list
++ ul.list
+
+And list elements will be then
+
++ a.item
++ div.item
+
+```html
+<ul class="list">
+  <li class="item">
+    ...
+  </li>
+</ul>
+```
+
+### Dividers
+
+Will be:
+
++ div.item.item-divider
+
+```html
+<div class="list">
+
+  <div class="item item-divider">
+    Candy Bars
+  </div>
+
+  <div class="item">
+    Butterfinger
+  </div>
+
+  <div class="item">
+    Kit Kat
+  </div
+  ...
+
+</div>
+```
+
+### With Icons
+
+```html
+<div class="list">
+
+  <a class="item item-icon-left" href="#">
+    <i class="icon ion-email"></i>
+    Check mail
+  </a>
+
+  <a class="item item-icon-left item-icon-right" href="#">
+    <i class="icon ion-chatbubble-working"></i>
+    Call Ma
+    <i class="icon ion-ios-telephone-outline"></i>
+  </a>
+
+  <a class="item item-icon-left" href="#">
+    <i class="icon ion-mic-a"></i>
+    Record album
+    <span class="item-note">
+      Grammy
+    </span>
+  </a>
+
+  <a class="item item-icon-left" href="#">
+    <i class="icon ion-person-stalker"></i>
+    Friends
+    <span class="badge badge-assertive">0</span>
+  </a>
+
+</div>
 ```
