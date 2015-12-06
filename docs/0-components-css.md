@@ -16,7 +16,20 @@
 
 ```html
 <div class="bar bar-header bar-light">
-  <h1 class="title">bar-light</h1>
+  <button class="button icon ion-navicon"></button>
+  <h1 class="title">Header Buttons</h1>
+  <button class="button">Edit</button>
+</div>
+<ion-content class="has-header"></ion-content>
+```
+
+Header with clear buttons
+
+```html
+<div class="bar bar-header bar-light">
+  <button class="button button-clear icon ion-navicon"></button>
+  <h1 class="title">Header Buttons</h1>
+  <button class="button buton-clear button-positive">Edit</button>
 </div>
 <ion-content class="has-header"></ion-content>
 ```
@@ -70,7 +83,7 @@ No title but button on the right or left, use **pull-right** or **pull-left**
 </div>
 ```
 
-## <button>
+## Button
 
 ```html
 <button class="button button-stable">title of the button</button>
@@ -144,4 +157,20 @@ Links (a) or (span) as buttons
 <a class="button button-outline icon-right ion-navicon button-balanced">Reorder</a>
 
 <span class="button button-icon icon ion-settings"></span>
+```
+
+## Button Bar
+
+```html
+<div class="button-bar">
+  <a class="button">First</a>
+  <a class="button">Second</a>
+  <a class="button">Third</a>
+</div>
+```
+
+## List
+
+```html
+
 ```
