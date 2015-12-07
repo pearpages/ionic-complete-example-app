@@ -1,6 +1,7 @@
 (function (){
 angular.module('eliteApp', [
   'ionic',
+  'myHome',
   'myTests'
   ])
 .run(function($ionicPlatform) {

@@ -4,29 +4,6 @@
     .config(function($stateProvider, $urlRouterProvider){
 
   $stateProvider
-    .state('home', {
-      url: "/home",
-      templateUrl: "app/home/home.html"
-    })
-
-    .state('home.leagues',{
-      url: "/leagues",
-      views: {
-        "tab-leagues": {
-          templateUrl: "app/home/leagues.html"
-        }
-      }
-    })
-
-    .state('home.myteams',{
-      url: "/myteams",
-      views: {
-        "tab-myteams": {
-          templateUrl: "app/home/myteams.html"
-        }
-      }
-    })
-
     .state('app',{
       
       url: "/app",
@@ -87,7 +64,8 @@
       }
     });
 
-    $urlRouterProvider.otherwise('/app');
+    // it can't be home because home is abstract
+    $urlRouterProvider.otherwise('/home/leagues');
 
 });
 }());

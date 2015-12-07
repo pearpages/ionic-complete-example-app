@@ -51,3 +51,74 @@ $stateProvider
 + ```<a href="#/foo/bar">Go</a>```
 + ```<a ui-sref="foo.bar">Go</a>```
 + ```$state.go("foo.bar)```
+
+## Example
+
+### The "abstract" view
+
+```html
+<ion-nav-bar class="bar-balanced">
+  <ion-nav-title>Elite Schedule</ion-nav-title>
+</ion-nav-bar>
+
+<ion-tabs class="tabs-energized tabs-icon-top">
+  
+  <ion-tab title="Leagues" icon="ion-home" href="#/home/leagues">
+    <!-- The view has its name -->
+    <ion-nav-view name="tab-leagues"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="My Teams" icon="ion-star" ui-sref="home.myteams">
+    <ion-nav-view name="tab-myteams"></ion-nav-view>
+  </ion-tab>
+  
+</ion-tabs>
+```
+
+### The routing in the module
+
+```javascript
+(function() {
+    'use strict';
+    angular.module("myHome",[])
+    .config(function($stateProvider, $urlRouterProvider){
+        $stateProvider
+        .state('home', {
+            abstract: true,
+            url: "/home",
+            templateUrl: "app/home/home.html"
+        })
+
+        .state('home.leagues',{
+            url: "/leagues",
+            views: {
+                "tab-leagues": {
+                templateUrl: "app/home/leagues.html"
+            }
+          }
+        })
+
+        .state('home.myteams',{
+          url: "/myteams",
+          views: {
+                "tab-myteams": {
+                templateUrl: "app/home/myteams.html"
+            }
+          }
+        });
+    });
+})();
+```
+
+### leagues.html view
+
+```html
+<ion-view ng-controller="LeaguesController as leagues">
+    <ion-content class="has-header" >
+        <div class="list">
+            <a ng-click="leagues.selectLeague()" class="item item-icon-right" ng-repeat="league in leagues.leagues">{{league.name}} <i class="icon ion-chevron-right icon-accessory"></i>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>
+```
