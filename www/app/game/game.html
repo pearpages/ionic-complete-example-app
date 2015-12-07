@@ -1,4 +1,4 @@
-<ion-view ng-controller="GameController as game">
+<ion-view ng-controller="GameController as vm">
 
 	<ion-nav-title>Game</ion-nav-title>
 
@@ -8,35 +8,37 @@
 			<div class="item item-divider item-energized">
 				Home Team
 			</div>
-			<a class="item item-text-wrap item-icon-right" ng-href="#/app/teams/{{game.game.team1Id}}">
-				{{game.game.team1}}
+			<a class="item item-text-wrap item-icon-right" ng-href="#/app/teams/{{vm.game.team1Id}}">
+				{{vm.game.team1}}
+				<i class="icon ion-chevron-right icon-accessory"></i>
 			</a>
 			<div class="item item-divider">
-				Score: {{game.game.team1Score}}
+				Score: {{vm.game.team1Score}}
 			</div>
 		</div>
 
 		<div class="card">
-			<div class="item item-divider item-energized">
+			<div class="item item-divider item-calm">
 				Away Team
 			</div>
-			<a class="item item-text-wrap item-icon-right" ng-href="#/app/teams/{{game.game.team1Id}}">
-				{{game.game.team2}}
+			<a class="item item-text-wrap item-icon-right" ng-href="#/app/teams/{{vm.game.team1Id}}">
+				{{vm.game.team2}}
+				<i class="icon ion-chevron-right icon-accessory"></i>
 			</a>
 			<div class="item item-divider">
-				Score: {{game.game.team2Score}}
+				Score: {{vm.game.team2Score}}
 			</div>
 		</div>
 
 		<div class="card">
-			<div class="item item-divider item-energized">
+			<div class="item item-divider item-balanced">
 				Time/Location
 			</div>
 			<div class="item">
-				<span class="bold">Date/Time:</span> {{game.game.time | date: 'M/d/yy'}} {{game.game.time | date:'shortTime'}}
+				<span class="bold">Date/Time:</span> {{vm.game.time | date: 'M/d/yy'}} {{vm.game.time | date:'shortTime'}}
 			</div>
 			<div class="item item-divider">
-				Score: {{game.game.location}}
+				{{vm.game.location}}
 			</div>
 		</div>
 

@@ -5,7 +5,7 @@
 + light
 + stable
 + positive
-+ calme
++ calm
 + balanced
 + energized
 + assertive
@@ -247,4 +247,21 @@ Will be:
   </a>
 
 </div>
+```
+
+## Cards
+
+```html
+<div class="card">
+      <div class="item item-divider item-calm">
+        Away Team
+      </div>
+      <a class="item item-text-wrap item-icon-right" ng-href="#/app/teams/{{vm.game.team1Id}}">
+        {{vm.game.team2}}
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </a>
+      <div class="item item-divider">
+        Score: {{vm.game.team2Score}}
+      </div>
+    </div>
 ```
