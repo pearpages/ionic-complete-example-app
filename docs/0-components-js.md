@@ -43,4 +43,20 @@ Each state is not required to be bound to a URL, and data can be pushed to each 
 
 The ion-nav-view is used to render templates in your application. Each template is part of a state.
 
+## $ionicPopup
 
+```javascript
+function toggleFollow(){
+    if(!vm.following){
+        var confirmPopup = $ionicPopup.confirm({
+            title: "Unfollow?",
+            template: 'Are you sure you want to unfollow?'
+        });
+        confirmPopup.then(function(res){
+            if(!res){
+                vm.following = !vm.following;
+            }
+        });
+    }
+}
+```

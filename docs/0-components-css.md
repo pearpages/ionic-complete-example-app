@@ -265,3 +265,36 @@ Will be:
       </div>
     </div>
 ```
+
+## Checkbox
+
+```html
+    <div class="item item-checkbox">
+      <h2>{{vm.following ? "Following" : "Not Following"}}</h2>
+      <label class="checkbox">
+        <input type="checkbox" ng-model="vm.following">
+      </label>
+    </div>
+```
+
+## Toggle
+
+```html
+    <div class="item item-toggle">
+      <h2>{{vm.following ? "Following" : "Not Following"}}</h2>
+      <label class="toggle toggle-energized">
+        <input type="checkbox" ng-model="vm.following">
+        <div class="track">
+          <div class="handle"></div>
+        </div>
+      </label>
+    </div>
+```
+
+## Button as checkbox
+
+```html
+<button class="button button-positive icon-left" ng-class="{'ion-checkmark-round': vm.following, 'ion-plus-round button-outline' : !vm.following}" ng-click="vm.toggleFollow()">
+        {{vm.following ? "Following" : "Not Following"}}
+      </button>
+```

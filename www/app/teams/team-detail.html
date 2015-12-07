@@ -6,28 +6,18 @@
 
 	<div class="card">
 
-		<div class="item item-checkbox">
+		<div class="item item-toggle">
 			<h2>{{vm.following ? "Following" : "Not Following"}}</h2>
-			<label class="checkbox">
+			<label class="toggle toggle-energized" ng-click="vm.toggleFollow()">
 				<input type="checkbox" ng-model="vm.following">
-			</label>
-		</div>
-
-		<div class="item item-checkbox">
-			<h2>{{vm.following ? "Following" : "Not Following"}}</h2>
-			<label class="toggle toggle-energized">
-				<input type="checkbox" ng-model="vm.following">
-				<div class="track">
+				<div class="track" >
 					<div class="handle"></div>
 				</div>
 			</label>
 		</div>
 
-		<div class="item item-button-right">
+		<div class="item">
 			<h2>Record: {{vm.teamStanding.wins}}-{{vm.teamStanding.losses}}</h2>
-			<button class="button button-positive icon-left" ng-class="{'ion-checkmark-round': vm.following, 'ion-plus-round button-outline' : !vm.following}" ng-click="vm.toggleFollow()">
-				{{vm.following ? "Following" : "Not Following"}}
-			</button>
 		</div>
 	</div>
 
