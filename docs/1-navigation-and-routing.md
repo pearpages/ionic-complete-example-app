@@ -52,6 +52,32 @@ $stateProvider
 + ```<a ui-sref="foo.bar">Go</a>```
 + ```$state.go("foo.bar)```
 
+ui-sref example with params!
+
+```html
+<div class="list">
+            <a class="item item-icon-right" ng-repeat="game in vm.games" ui-sref="app.game({id:game.gameId})">
+
+            <div class="row">
+                <div class="col-20">
+                    <p>{{game.time | date:'M/d/yy'}}</p>
+                    <p>{{game.time | date: 'shortTime'}}</p>
+                </div>
+
+                <div class="col col-center">
+                    <h3>{{game.homeAway}} {{game.opponent}}</h3>
+                    <p>{{game.location}}</p>
+                </div>
+                <div class="col-20">c
+                    <h4 class="positive">{{game.scoreDisplay}}</h4>
+                </div>                  
+            </div>
+
+            <i class="icon ion-chevron-right icon-accessory"></i>
+            </a>
+        </div>
+```
+
 ## Example
 
 ### The "abstract" view

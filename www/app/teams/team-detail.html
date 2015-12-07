@@ -36,16 +36,16 @@
 
 			<div class="row">
 				<div class="col-20">
-					<p>{{game.time | date:'M/d/yy'}}</p>
-					<p>{{game.time | date: 'shortTime'}}</p>
+					<p style="font-size:12px !important">{{game.time | date:'M/d/yy'}}</p>
+					<p style="font-size:10px !important">{{game.time | date: 'shortTime'}}</p>
 				</div>
 
 				<div class="col col-center">
-					<h3>{{game.homeAway}} {{game.opponent}}</h3>
-					<p>{{game.location}}</p>
+					<h3 style="font-size:10px !important">{{game.homeAway}} {{game.opponent}}</h3>
+					<p style="font-size:10px !important">{{game.location}}</p>
 				</div>
-				<div class="col-20">c
-					<h4 class="positive">{{game.scoreDisplay}}</h4>
+				<div class="col-20 col-center">
+					<h4 style="font-size:10px !important" class="positive">{{game.scoreDisplay}}</h4>
 				</div>					
 			</div>
 
