@@ -77,6 +77,8 @@ $stateProvider
 
 ### The routing in the module
 
+Remember that in the example son routes will inherit the url of the parent, so e.g. /leagues will be /home/leagues.
+
 ```javascript
 (function() {
     'use strict';
