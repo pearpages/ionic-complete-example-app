@@ -4,7 +4,7 @@
 
 	<ion-content class="has-header">
 
-	<!--div class="card">
+	<div class="card">
 
 		<div class="item item-checkbox">
 			<h2>{{vm.following ? "Following" : "Not Following"}}</h2>
@@ -24,12 +24,12 @@
 		</div>
 
 		<div class="item item-button-right">
-			<h2>Record: {{game.teamStanding.wins}}-{{game.teamStanding.losses}}</h2>
+			<h2>Record: {{vm.teamStanding.wins}}-{{vm.teamStanding.losses}}</h2>
 			<button class="button button-positive icon-left" ng-class="{'ion-checkmark-round': vm.following, 'ion-plus-round button-outline' : !vm.following}" ng-click="vm.toggleFollow()">
 				{{vm.following ? "Following" : "Not Following"}}
 			</button>
 		</div>
-	</div-->
+	</div>
 
 		<div class="list">
 			<a class="item item-icon-right" ng-repeat="game in vm.games" ui-sref="app.game({id:game.gameId})">
