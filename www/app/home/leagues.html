@@ -1,8 +1,9 @@
-<ion-view ng-controller="LeaguesController as leagues">
+<ion-view ng-controller="LeaguesController as vm">
+    <ion-nav-title>Leagues</ion-nav-title>
+
 	<ion-content class="has-header" >
 		<div class="list">
-			<a ng-click="leagues.selectLeague()" class="item item-icon-right" ng-repeat="league in leagues.leagues">{{league.name}} <i class="icon ion-chevron-right icon-accessory"></i>
-			</a>
+			<a style="font-size:12px" ng-click="vm.selectLeague(league.id)" class="item item-icon-right" ng-repeat="league in vm.leagues">{{league.name}} <i class="icon ion-chevron-right icon-accessory"></i></a>
 		</div>
 	</ion-content>
 </ion-view>

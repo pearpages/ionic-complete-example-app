@@ -1,7 +1,7 @@
-<ion-view>
+<ion-view ng-controller="LocationsController as locations">
     <ion-nav-title>Locations</ion-nav-title>
 
-	<ion-content class="has-header" ng-controller="LocationsController as locations">
+	<ion-content class="has-header" >
 		<div class="list">
 			<div class="item" ng-repeat="location in locations.locations">
 				{{location.name}}
