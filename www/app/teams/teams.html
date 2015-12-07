@@ -1,17 +1,16 @@
-<ion-view ng-controller="TeamsController as teams">
+<ion-view ng-controller="TeamsController as vm">
 
     <ion-nav-title>Teams</ion-nav-title>
 
 	<ion-content class="has-header">
 
-		<a class="button button-positive" href="#/app/teams/21">go to team</a>
-
 		<div class="list">
-			<div ng-repeat="division in teams.teams">
+			<div ng-repeat="division in vm.teams">
+			<!-- list divider -->
 			<div class="item item-divider item-energized">{{division.divisionName}}</div>
 
-				<a class="item item-icon-right" ng-repeat="team in division.divisionTeams" href="#app/teams/{{team.id}}">{{team.name}}
-				<i class="icon icon-chevron-right icon-accessory"></i></a>
+				<a style="font-size:12px" class="item item-icon-right" ng-repeat="team in division.divisionTeams" href="#app/teams/{{team.id}}">{{team.name}}
+				<i class="icon ion-chevron-right icon-accessory"></i></a>
 			</div>
 		</div>
 	</ion-content>

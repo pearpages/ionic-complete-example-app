@@ -1,13 +1,18 @@
 (function (){
 	'use strict';
 
-	angular.module('eliteApp')
+	angular.module('myStandings')
 		.controller('StandingsController',['eliteApi',StandingsController]);
 
 	function StandingsController(eliteApi){
 
 		var vm = this;
-		vm.standings = eliteApi.getLeagueData().standings;
+
+        activate();
+
+        function activate() {
+            vm.standings = eliteApi.getLeagueData().standings;    
+        }
 
 	}
 

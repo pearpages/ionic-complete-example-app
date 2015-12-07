@@ -1,14 +1,24 @@
-<ion-view ng-controller="StandingsController as standings">
+<ion-view ng-controller="StandingsController as vm">
 
 <ion-nav-title>Standings</ion-nav-title>
 
 	<ion-content class="has-header">
 		<div class="list">
-			<div ng-repeat="division in standings.standings">
+			<div ng-repeat="division in vm.standings">
 				<div class="item item-divider item-energized">{{division.divisionName}}</div>
 
-				<a href="#/app/teams/{{team.id}}" class="item item-icon-right" ng-repeat="team in division.divisionStandings">
+				<a style="font-size:12px" href="#/app/teams/{{team.id}}" class="item item-icon-right" ng-repeat="team in division.divisionStandings">
 					
+					{{team.teamName}}
+
+					<i class="icon ion-chevron-right icon-accessory"></i>
+				</a>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
+
+<!--
 <div class="row">
 	<div class="col">
 		<h2 class="positive">{{team.teamName}}</h2>
@@ -30,10 +40,4 @@
 	<div class="col"><h5>{{team.pointsAgainst}}</h5></div>
 	<div class="col"><h5>-{{team.pointsDiff}}</h5></div>
 </div>
-
-					<i class="icon icon-chevron-right icon-accessory"></i>
-				</a>
-			</div>
-		</div>
-	</ion-content>
-</ion-view>
+-->
