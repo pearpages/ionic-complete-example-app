@@ -125,5 +125,25 @@ Remember that in the example son routes will inherit the url of the parent, so e
 </ion-view>
 ```
 
+## Animations
+
+See the animation attribute:
+
+```html
+<ion-nav-bar class="bar-positive">
+    <ion-nav-title>Abstract main content</ion-nav-title>
+    <ion-nav-buttons>
+        <button class="button button-primary icon ion-navicon" menu-toggle="left"></button>
+    </ion-nav-buttons>
+</ion-nav-bar>
+
+<ion-nav-view name="mainContent" animation="slide-left-right">
+
+</ion-nav-view>
+```
+
 ## Route Parameters
 
+### $stateParams
+
+Through $stateParams we have access to the url params defined in the routing.

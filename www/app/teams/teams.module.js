@@ -15,7 +15,9 @@
               url: "/teams/:id",
               views: {
                 'mainContent':{
-                  templateUrl: "app/teams/team-detail.html"
+                  templateUrl: "app/teams/team-detail.html",
+                  controller: 'TeamDetailController',
+                  controllerAs: 'teamDetail'
                 }
               }
             });
