@@ -1,5 +1,5 @@
 (function (){
-	angular.module('eliteApp')
+	angular.module('myGame')
 		.controller('GameController',['$stateParams','eliteApi',GameController]);
 
 

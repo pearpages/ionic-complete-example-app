@@ -1,7 +1,7 @@
 (function (){
 	'use strict';
 
-	angular.module('eliteApp')
+	angular.module('myLocations')
 		.controller('LocationsController',['eliteApi',LocationsController]);
 
 	function LocationsController(eliteApi){

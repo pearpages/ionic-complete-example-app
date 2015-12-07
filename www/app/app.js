@@ -3,6 +3,11 @@ angular.module('eliteApp', [
   'ionic',
   'myLayout',
   'myHome',
+  'myGame',
+  'myLocations',
+  'myRules',
+  'myTeams',
+  'myStandings',
   'myTests'
   ])
 .run(function($ionicPlatform) {

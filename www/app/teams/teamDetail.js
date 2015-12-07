@@ -1,7 +1,7 @@
 (function (){
 	'use strict';
 
-	angular.module('eliteApp')
+	angular.module('myTeams')
 	.controller('TeamDetailController', ['$stateParams','eliteApi','$ionicPopup',TeamDetailController]);
 
 	function TeamDetailController ($stateParams,eliteApi,$ionicPopup){

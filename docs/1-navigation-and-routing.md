@@ -124,3 +124,6 @@ Remember that in the example son routes will inherit the url of the parent, so e
     </ion-content>
 </ion-view>
 ```
+
+## Route Parameters
+
