@@ -147,3 +147,7 @@ See the animation attribute:
 ### $stateParams
 
 Through $stateParams we have access to the url params defined in the routing.
+
+### $state
+
+```$sate.go('home.teams');```

@@ -12,7 +12,7 @@
 		vm.games = getGames();
 		vm.teamStanding = getTeamStanding();
 		vm.toggleFollow = toggleFollow;
-		vm.following;
+		vm.following = null;
 
 		var data;
 

@@ -9,6 +9,10 @@
 + Customizing Ionic
 + ngCordova
 
+## Dependencies
+
++ lodash
+
 ## Cordova
 
 * JavaScript API that "wraps" native APIs
