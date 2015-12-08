@@ -9,6 +9,7 @@
     var currentLeagueId;
     var leaguesCache;
     var leagueDataCache;
+    var staticCache;
 
     activate();
 
@@ -44,7 +45,11 @@
     }
 
     function setLeagueId(leagueId) {
-      currentLeagueId = leagueId;
+      staticCache.put('currentLeagueId', leagueId);
+    }
+
+    function getLeagueId() {
+      return staticCache.get('currentLeagueId');
     }
 
     function getLeagueData() {
@@ -94,6 +99,7 @@
     function initCache() {
       leaguesCache = CacheFactory.get('leaguesCache');
       leagueDataCache = CacheFactory.get('leagueDataCache');
+      staticCache = CacheFactory.get('staticCache');
 
       leaguesCache.setOptions({
         onExpire: function(key, value) {
