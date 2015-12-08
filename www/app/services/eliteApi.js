@@ -50,21 +50,33 @@
     function getLeagueData() {
       var deferred = $q.defer();
 
-      $ionicLoading.show({template: 'Loading...'});
+      var cacheKey = "leagueData-" + currentLeagueId;
+      var leagueData = leagueDataCache.get(cacheKey);
 
-      $http.get("http://elite-schedule.net/api/leaguedata/" + currentLeagueId)
-      .success(function(data,status) {
-        console.log("Received schedule data via HTTP",data, status);
-        $timeout(function() {
+      if(leagueData){
+        console.log('Found data in cache',leagueData);
+        deferred.resolve(leagueData);
+      } else {
+        $ionicLoading.show({template: 'Loading...'});
+
+        $http.get("http://elite-schedule.net/api/leaguedata/" + currentLeagueId)
+        .success(function(data,status) {
+          console.log("Received schedule data via HTTP",data, status);
+
+          leagueDataCache.put(cacheKey, data);
+
+          $timeout(function() {
+            $ionicLoading.hide();
+            deferred.resolve(data);
+          },1000);
+        })
+        .error(function() {
+          console.log("Error while making HTTP call.");
           $ionicLoading.hide();
-          deferred.resolve(data);
-        },1000);
-      })
-      .error(function() {
-        console.log("Error while making HTTP call.");
-        $ionicLoading.hide();
-        deferred.reject();
-      });
+          deferred.reject();
+        });
+      }
+
       return deferred.promise;
     }
 
