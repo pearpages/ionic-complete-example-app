@@ -64,3 +64,37 @@ function activate() {
       });
     }
 ```
+
+## $ionicLoading
+
+This example has also a $timeout but it's only to shouw the $ionicLoading more time
+
+```javascript
+function getLeagueData() {
+      var deferred = $q.defer();
+
+      $ionicLoading.show({template: 'Loading...'});
+
+      $http.get("http://elite-schedule.net/api/leaguedata/" + currentLeagueId)
+      .success(function(data,status) {
+        console.log("Received schedule data via HTTP",data, status);
+        $timeout(function() {
+          $ionicLoading.hide();
+          deferred.resolve(data);
+        },1000);
+      })
+      .error(function() {
+        console.log("Error while making HTTP call.");
+        $ionicLoading.hide();
+        deferred.reject();
+      });
+      return deferred.promise;
+    }
+```
+
+## Angular Cache
+
++ Angular-cache is a replacement for Angular's **$cacheFactory**
++ Configurable TTL (time to live, when are we going to reload/refresh it)
++ Configurable Storage Options (e.g., Local Storage)
++ Expiration Events

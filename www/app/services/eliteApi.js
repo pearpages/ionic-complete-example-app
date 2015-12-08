@@ -2,9 +2,9 @@
   'use strict';
 
   angular.module("eliteApp")
-  .factory('eliteApi',['$http','$q','$ionicLoading',eliteApi]);
+  .factory('eliteApi',['$http','$q','$ionicLoading','$timeout',eliteApi]);
 
-  function eliteApi($http,$q,$ionicLoading) {
+  function eliteApi($http,$q,$ionicLoading,$timeout) {
 
     var leagues;
     var leagueData;
@@ -44,8 +44,10 @@
       $http.get("http://elite-schedule.net/api/leaguedata/" + currentLeagueId)
       .success(function(data,status) {
         console.log("Received schedule data via HTTP",data, status);
-        $ionicLoading.hide();
-        deferred.resolve(data);
+        $timeout(function() {
+          $ionicLoading.hide();
+          deferred.resolve(data);
+        },1000);
       })
       .error(function() {
         console.log("Error while making HTTP call.");
