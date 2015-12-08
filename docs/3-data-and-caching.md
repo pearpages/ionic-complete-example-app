@@ -192,3 +192,22 @@ Service code
       return deferred.promise;
     }
 ```
+
+## Offline
+
+In a service
+
+```javascript
+ var leaguesCache = CacheFactory.get('leaguesCache')
+    .setOptions({
+      onExpire: function(key, value) {
+        getLeagues()
+          .then(function() {
+            console.log("Leagues Cache was automatically refreshed");
+          }, function() {
+            console.log("Error getting data. Putting exipred item back into the cache", new Date());
+            leaguesCache.put(key, value);
+          });
+      }
+    });
+```
