@@ -17,7 +17,9 @@ Check the bower.json file to see them
 
 ## In development use chrome.sh script to load chrome without CORS
 
-```./chrome.sh```
+```
+./chrome.sh
+```
 
 ## Cordova
 

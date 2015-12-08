@@ -211,3 +211,6 @@ In a service
       }
     });
 ```
+
+## Force Refresh
+
