@@ -13,10 +13,13 @@
 		activate();
 
 		function activate() {
-			vm.leagues = eliteApi.getLeagues();
+			eliteApi.getLeagues(function(data) {
+				vm.leagues = data;
+			});
 		}
 
 		function selectLeague(leagueId) {
+			eliteApi.setLeagueId(leagueId);
 			$state.go('app.teams');
 		}
 

@@ -15,7 +15,6 @@
                 var gameId = Number($stateParams.id);
                 var data = eliteApi.getLeagueData();
                 vm.game = _.find(data.games, {"id":gameId});
-                console.log(vm.game);
             }
 
 			
