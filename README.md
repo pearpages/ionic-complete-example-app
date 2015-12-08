@@ -11,7 +11,13 @@
 
 ## Dependencies
 
+Check the bower.json file to see them
+
 + lodash
+
+## In development use chrome.sh script to load chrome without CORS
+
+```./chrome.sh```
 
 ## Cordova
 
