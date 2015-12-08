@@ -22,7 +22,7 @@
           url: "/myteams",
           views: {
                 "tab-myteams": {
-                templateUrl: "app/home/myteams.html"
+                templateUrl: "app/home/my-teams.html"
             }
           }
         });

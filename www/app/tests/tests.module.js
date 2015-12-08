@@ -1,4 +1,6 @@
 (function() {
+  //useless module just for doing tests!
+  
     'use strict';
     angular.module("myTests",[])  
     .config(function($stateProvider, $urlRouterProvider){

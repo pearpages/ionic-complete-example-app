@@ -2,12 +2,13 @@
 	'use strict';
 
 	angular.module('myTeams')
-	.controller('TeamDetailController', ['$stateParams','eliteApi','$ionicPopup',TeamDetailController]);
+	.controller('TeamDetailController', ['$stateParams','eliteApi','$ionicPopup','myTeams',TeamDetailController]);
 
-	function TeamDetailController ($stateParams,eliteApi,$ionicPopup){
+	function TeamDetailController ($stateParams,eliteApi,$ionicPopup,myTeams){
 		var vm = this;
 
 		vm.teamId = null;
+		vm.team = null;
 		vm.teamName = null;
 		vm.games = null;
 		vm.teamStanding = null;
@@ -17,10 +18,10 @@
 		activate();
 
 		function activate() {
-			vm.following = false;
 			vm.teamId = Number($stateParams.id);
+			vm.following = (myTeams.isFollowingTeam(vm.teamId)) ? true: false;
 			getTeamStanding();
-			getTeamName();
+			getTeam();
 			getGames();
 		}
 
@@ -34,29 +35,43 @@
 					if(!res){
 						vm.following = !vm.following;
 					}
+					if(vm.following){
+						myTeams.followTeam(vm.team);
+						console.log('follow',vm.team);
+					} else {
+						myTeams.unfollowTeam(vm.team.id);
+						console.log('unfollow',vm.team);
+					}
 				});
+			}
+			if(vm.following){
+				myTeams.followTeam(vm.team);
+				console.log('follow',vm.team);
+			} else {
+				myTeams.unfollowTeam(vm.team.id);
+				console.log('unfollow',vm.team);
 			}
 		}
 
 		function getTeamStanding(){
 			eliteApi.getLeagueData()
-				.then(function(data) {
-					var divisions = data.standings;
-					var standings;
-					var standing;
-					for (var i = 0; i<divisions.length; i++) {
-						standings = divisions[i].divisionStandings;
-						for (var j = 0; j<standings.length; j++) {
-							standing = standings[j];
-							if(standing.teamId === vm.teamId){
-								vm.teamStanding = standing;
-							}
+			.then(function(data) {
+				var divisions = data.standings;
+				var standings;
+				var standing;
+				for (var i = 0; i<divisions.length; i++) {
+					standings = divisions[i].divisionStandings;
+					for (var j = 0; j<standings.length; j++) {
+						standing = standings[j];
+						if(standing.teamId === vm.teamId){
+							vm.teamStanding = standing;
 						}
-					}					
-				});
+					}
+				}					
+			});
 		}
 
-		function getTeamName(){
+		function getTeam(){
 			eliteApi.getLeagueData()
 			.then(function(data) {
 				var divisions = data.teams;
@@ -68,6 +83,7 @@
 						team = divisionTeams[j];
 						if(team.id === vm.teamId){
 							vm.teamName =  team.name;
+							vm.team = team;
 						}
 					}
 				}				
@@ -79,21 +95,21 @@
 			eliteApi.getLeagueData()
 			.then(function(data) {
 				vm.games = _.chain(data.games)
-					.filter(isTeamInGame)
-					.map(function(item){
-						var isTeam1 = (item.team1d === vm.teamId ? true: false);
-						var oponnentName = isTeam1 ? item.team2 : item.team1;
-						var scoreDisplay = getScoreDisplay(isTeam1, item.team1Score, item.team2Score);
-						return {
-							gameId: item.id,
-							opponent: oponnentName,
-							time: item.time,
-							location: item.location,
-							locationUrl: item.locationUrl,
-							scoreDisplay: scoreDisplay,
-							homeAway: (isTeam1 ? "vs." : "at")
-						};
-					}).value();	
+				.filter(isTeamInGame)
+				.map(function(item){
+					var isTeam1 = (item.team1d === vm.teamId ? true: false);
+					var oponnentName = isTeam1 ? item.team2 : item.team1;
+					var scoreDisplay = getScoreDisplay(isTeam1, item.team1Score, item.team2Score);
+					return {
+						gameId: item.id,
+						opponent: oponnentName,
+						time: item.time,
+						location: item.location,
+						locationUrl: item.locationUrl,
+						scoreDisplay: scoreDisplay,
+						homeAway: (isTeam1 ? "vs." : "at")
+					};
+				}).value();	
 			});
 			
 		}

@@ -78,6 +78,15 @@ ui-sref example with params!
         </div>
 ```
 
+$state.go with params
+
+```javascript
+vm.goToTeam = function(team) {
+    eliteApi.setLeagueId(team.leagueId);
+    $state.go("app.team-detail", {id:team.id});
+}
+```
+
 ## Example
 
 ### The "abstract" view
