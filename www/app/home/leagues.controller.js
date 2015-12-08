@@ -13,7 +13,8 @@
 		activate();
 
 		function activate() {
-			eliteApi.getLeagues(function(data) {
+			eliteApi.getLeagues()
+			.then(function(data) {
 				vm.leagues = data;
 			});
 		}

@@ -19,9 +19,9 @@
 		function activate() {
 			vm.following = false;
 			vm.teamId = Number($stateParams.id);
-			vm.teamStanding = getTeamStanding();
-			vm.teamName = getTeam().name;
-			vm.games = getGames();
+			getTeamStanding();
+			getTeamName();
+			getGames();
 		}
 
 		function toggleFollow(){
@@ -38,43 +38,47 @@
 			}
 		}
 
-
-		function getLeagueData(){
-			return eliteApi.getLeagueData();
-		} 
-
 		function getTeamStanding(){
-			var divisions = getLeagueData().standings;
-			var standings;
-			var standing;
-			for (var i = 0; i<divisions.length; i++) {
-				standings = divisions[i].divisionStandings;
-				for (var j = 0; j<standings.length; j++) {
-					standing = standings[j];
-					if(standing.teamId === vm.teamId){
-						return standing;
-					}
-				}
-			}
+			eliteApi.getLeagueData()
+				.then(function(data) {
+					var divisions = data.standings;
+					var standings;
+					var standing;
+					for (var i = 0; i<divisions.length; i++) {
+						standings = divisions[i].divisionStandings;
+						for (var j = 0; j<standings.length; j++) {
+							standing = standings[j];
+							if(standing.teamId === vm.teamId){
+								vm.teamStanding = standing;
+							}
+						}
+					}					
+				});
 		}
 
-		function getTeam(){
-			var divisions = getLeagueData().teams;
-			var divisionTeams;
-			var team;
-			for (var i = 0; i<divisions.length; i++) {
-				divisionTeams = divisions[i].divisionTeams;
-				for (var j = 0; j<divisionTeams.length; j++) {
-					team = divisionTeams[j];
-					if(team.id === vm.teamId){
-						return team;
+		function getTeamName(){
+			eliteApi.getLeagueData()
+			.then(function(data) {
+				var divisions = data.teams;
+				var divisionTeams;
+				var team;
+				for (var i = 0; i<divisions.length; i++) {
+					divisionTeams = divisions[i].divisionTeams;
+					for (var j = 0; j<divisionTeams.length; j++) {
+						team = divisionTeams[j];
+						if(team.id === vm.teamId){
+							vm.teamName =  team.name;
+						}
 					}
-				}
-			}
+				}				
+			});
+
 		}
 		
 		function getGames(){
-			return _.chain(getLeagueData().games)
+			eliteApi.getLeagueData()
+			.then(function(data) {
+				vm.games = _.chain(data.games)
 					.filter(isTeamInGame)
 					.map(function(item){
 						var isTeam1 = (item.team1d === vm.teamId ? true: false);
@@ -89,7 +93,9 @@
 							scoreDisplay: scoreDisplay,
 							homeAway: (isTeam1 ? "vs." : "at")
 						};
-					}).value();
+					}).value();	
+			});
+			
 		}
 
 		function isTeamInGame(item){
