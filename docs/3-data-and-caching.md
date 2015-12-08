@@ -214,3 +214,85 @@ In a service
 
 ## Force Refresh
 
+Let's see how to do a force refresh through:
+
++ Service
++ View
++ Controller
+
+Service
+
+```javascript
+function getLeagueData(forceRefresh) {
+      if(typeof forceRefresh === 'undefined') {forceRefresh = false; }
+
+      var deferred = $q.defer();
+
+      var cacheKey = "leagueData-" + getLeagueId();
+      var leagueData = null;
+
+      if(!forceRefresh) {
+        leagueDataCache.get(cacheKey);  
+      }
+      
+
+      if(leagueData){
+        console.log('Found data in cache',leagueData);
+        deferred.resolve(leagueData);
+      } else {
+        $ionicLoading.show({template: 'Loading...'});
+
+        $http.get("http://elite-schedule.net/api/leaguedata/" + getLeagueId())
+        .success(function(data,status) {
+          console.log("Received schedule data via HTTP",data, status);
+
+          leagueDataCache.put(cacheKey, data);
+
+          $timeout(function() {
+            $ionicLoading.hide();
+            deferred.resolve(data);
+          },1000);
+        })
+        .error(function() {
+          console.log("Error while making HTTP call.");
+          $ionicLoading.hide();
+          deferred.reject();
+        });
+      }
+
+      return deferred.promise;
+    }
+```
+
+View
+
+```html
+<ion-refresher pulling-text="Pull to refresh..." on-refresh="vm.loadList(true)"></ion-refresher>
+```
+
+Controller
+
+```javascript
+function TeamsController($scope,eliteApi){
+  var vm = this;
+
+        vm.teams = null;
+        vm.loadList = loadList;
+
+        activate();
+
+        function activate() {
+            loadList(false);   
+        }
+
+        function loadList(forceRefresh) {
+            eliteApi.getLeagueData(forceRefresh)
+            .then(function(data) {
+                vm.teams = data.teams;
+            }).finally(function() {
+                $scope.$broadcast('scroll.refreshComplete');
+            });
+        }
+  
+}
+```

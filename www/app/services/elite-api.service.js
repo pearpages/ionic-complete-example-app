@@ -51,11 +51,18 @@
       return staticCache.get('currentLeagueId');
     }
 
-    function getLeagueData() {
+    function getLeagueData(forceRefresh) {
+      if(typeof forceRefresh === 'undefined') {forceRefresh = false; }
+
       var deferred = $q.defer();
 
       var cacheKey = "leagueData-" + getLeagueId();
-      var leagueData = leagueDataCache.get(cacheKey);
+      var leagueData = null;
+
+      if(!forceRefresh) {
+        leagueDataCache.get(cacheKey);  
+      }
+      
 
       if(leagueData){
         console.log('Found data in cache',leagueData);
