@@ -2,9 +2,10 @@
 
 + Ionic Components
     * [CSS](https://github.com/pearpages/ionic-complete-example-app/blob/master/docs/0-components-css.md)
+    * [JS](https://github.com/pearpages/ionic-complete-example-app/blob/master/docs/0-components-js.md)
+    * [Grid](https://github.com/pearpages/ionic-complete-example-app/blob/master/docs/2-ionic-grids.md)
 + [Navigation and Routing](https://github.com/pearpages/ionic-complete-example-app/blob/master/docs/1-navigation-and-routing.md)
-+ Ionic Components
-+ Data and Caching
++ [Data and Caching](https://github.com/pearpages/ionic-complete-example-app/blob/master/docs/3-data-and-caching.md)
 + Mapping
 + Customizing Ionic
 + ngCordova
