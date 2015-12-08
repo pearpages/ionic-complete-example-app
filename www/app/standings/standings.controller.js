@@ -11,7 +11,10 @@
         activate();
 
         function activate() {
-            vm.standings = eliteApi.getLeagueData().standings;    
+            eliteApi.getLeagueData()
+            .then(function(data) {
+                vm.standings = data.standings;
+            });
         }
 
 	}
