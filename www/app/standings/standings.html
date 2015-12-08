@@ -7,7 +7,7 @@
 			<div ng-repeat="division in vm.standings">
 				<div class="item item-divider item-energized">{{division.divisionName}}</div>
 
-				<a style="font-size:12px" href="#/app/teams/{{team.id}}" class="item item-icon-right" ng-repeat="team in division.divisionStandings">
+				<a style="font-size:12px" class="item item-icon-right" ng-repeat="team in division.divisionStandings" ng-href="#/app/teams/{{team.teamId}}">
 					
 					<div class="row">
 						<div class="col">
