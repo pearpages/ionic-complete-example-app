@@ -122,7 +122,7 @@ function getLeagueData() {
 (function (){
 angular.module('eliteApp', [
   'ionic',
-  'angular-data.DSCacheFactory'
+  'angular-cache'
   ]);
 ```
 
