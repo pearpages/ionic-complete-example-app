@@ -153,10 +153,10 @@ angular.module('eliteApp', [
 
     //caches
     //10seconds = 10000
-    CacheFactory.create("leagueDataCache", {storageMode: "localStorage", maxAge: 10000, deleteOnExpire: "agressive"});
-    CacheFactory.create("leaguesCache", {storageMode: "localStorage", maxAge: 10000, deleteOnExpire: "agressive"});
-    CacheFactory.create("myTeamsCache", {storageMode: "localStorage"});
-    CacheFactory.create("staticCache", {storageMode: "localStorage"});
+    CacheFactory.createCache("leagueDataCache", {storageMode: "localStorage", maxAge: 10000, deleteOnExpire: "agressive"});
+    CacheFactory.createCache("leaguesCache", {storageMode: "localStorage", maxAge: 10000, deleteOnExpire: "agressive"});
+    CacheFactory.createCache("myTeamsCache", {storageMode: "localStorage"});
+    CacheFactory.createCache("staticCache", {storageMode: "localStorage"});
   });
 });
 
